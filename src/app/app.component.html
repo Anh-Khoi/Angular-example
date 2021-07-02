@@ -15,6 +15,8 @@
         <th class="level_1_1">Total Hrs</th>
         <th class="level_1_1">Recoverable Normal Time</th>
         <th class="level_1_1">Recoverable Overtime</th>
+        <th class="level_1_1">Non Recoverable Normal Time</th>
+        <th class="level_1_1">Non Recoverable Overtime</th>
      </thead>
      <tbody>
         <tr *ngFor="let item of items">
@@ -22,6 +24,8 @@
            <td align="center" class="level_1_1">{{item.TotalHrs}}</td>
            <td align="center" class="level_1_1">{{item.RecoverableNormalTime}}</td>
            <td align="center" class="level_1_1">{{item.RecoverableOvertime}}</td>
+           <td align="center" class="level_1_1">{{item.NRecoverableNormalTime}}</td>
+           <td align="center" class="level_1_1">{{item.NRecoverableOvertime}}</td>
         </tr>
      </tbody>
   </table>

@@ -15,7 +15,7 @@ export class AppComponent {
    pageSize : number = 5;
    optionPageSize: number[] = [
     3,5,7,11
-   ]
+   ];
    pageNumber : number = 0;
    currentIndex : number = 1;
    items: Project[];
@@ -74,6 +74,14 @@ setPage(index : number){
 }
 
 refreshItems(){
+  this.pageNumber = parseInt(""+ (this.filteredItems.length / this.pageSize));
+  if(this.filteredItems.length % this.pageSize != 0){
+    this.pageNumber ++;
+ }
+
+ if(this.pageNumber  < this.pages){
+       this.pages =  this.pageNumber;
+ }
   this.items = this.filteredItems.slice((this.currentIndex - 1)*this.pageSize, (this.currentIndex) * this.pageSize);
   this.pagesIndex =  this.fillArray();
 }
@@ -100,7 +108,10 @@ FilterByName(){
   console.log(this.filteredItems);
   this.init();
 }
-
+onChange(value: any){
+  this.pageSize = parseInt(value);;
+  this.refreshItems();
+}
 }
 
 

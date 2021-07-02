@@ -43,6 +43,11 @@
            <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a   (click)="nextPage()" href="#">Next</a></li>
         </ul>
      </div>
+     <label>Rows of page</label>
+     <select [ngModel]="pageSize"
+              (ngModelChange)="onChange($event)">
+      <option *ngFor="let i of optionPageSize" [value]='i'>{{i}}</option>
+   </select>
   </div>
 </div>
 </div>   
